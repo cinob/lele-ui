@@ -1,0 +1,29 @@
+{
+  "version": "0.0.0",
+  "name": "lele-ui",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/lele-ui.umd.js",
+  "module": "./dist/lele-ui.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/lele-ui.es.js",
+      "require": "./dist/lele-ui.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.0.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vue/compiler-sfc": "^3.0.5",
+    "stylus": "^0.54.8",
+    "vite": "^2.3.5"
+  }
+}
