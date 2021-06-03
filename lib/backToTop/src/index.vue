@@ -4,7 +4,7 @@
       class="back-to-top"
       :style="style"
       v-if="visible"
-      @click='handleClick'
+      @click.stop='handleClick'
     >
       <slot>top</slot>
     </div>
@@ -35,13 +35,9 @@ const style = computed(() => {
   }
 })
 
-const container = ref(null)
-const el = ref(null)
+const container = ref(document)
+const el = ref(document.documentElement)
 const visible = ref(false)
-function init () {
-  container.value = document
-  el.value = document.documentElement
-}
 
 function handleClick () {
   const beginScroll = el.value.scrollTop
@@ -58,23 +54,16 @@ function handleClick () {
 }
 
 onMounted(() => {
-  init()
   useEventListener(container, 'scroll', useThrottleFn(() => {
     const scrollTop = el.value.scrollTop
     visible.value = scrollTop >= props.visibilityHeight
-  }, 300))
+  }, 100))
 })
 
 </script>
 
 <style lang="stylus" scoped>
 @import '../../../src/styles/global.styl'
-.le-fade-in-enter-active
-.le-fade-in-leave-active
-  transition opacity .5s ease
-.le-fade-in-enter-from
-.le-fade-in-leave-to
-  opacity 0
 .back-to-top
   position fixed
   background-color #fff
