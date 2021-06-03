@@ -2,6 +2,7 @@
   <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg="Hello Vue 3 + Vite" />
   <Test />
+  <BackToTop />
 </template>
 
 <script setup>
@@ -19,5 +20,6 @@ import HelloWorld from './components/HelloWorld.vue'
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  height: 200vh
 }
 </style>
