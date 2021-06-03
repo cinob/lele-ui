@@ -28,12 +28,7 @@ const props = defineProps({
     default: 40
   }
 })
-const style = computed(() => {
-  return {
-    right: props.right + 'px',
-    bottom: props.bottom + 'px'
-  }
-})
+const style = computed(() => ({ right: props.right + 'px', bottom: props.bottom + 'px'}))
 
 const container = ref(document)
 const el = ref(document.documentElement)
