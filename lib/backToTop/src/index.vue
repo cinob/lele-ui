@@ -68,7 +68,7 @@ onMounted(() => {
   flex(center)
   align-items center
   font-size 20px
-  box-shadow 0 0 6px rgba(0, 0, 0, 12%)
+  box-shadow 0 0 6px rgba(invert(@background-color), 12%)
   @extend .pointer
   z-index 5
 </style>
