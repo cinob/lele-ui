@@ -1,8 +1,8 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg="Hello Vue 3 + Vite" />
-  <Test />
-  <BackToTop />
+  <LeBackToTop />
+  <LeIcon name='milk-tea'/>
 </template>
 
 <script setup>
