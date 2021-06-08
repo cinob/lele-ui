@@ -7,12 +7,18 @@ $border-style-base = solid
 $border-base = $border-width-base $border-style-base $border-color-base
 $border-color-base = #DCDFE6
 $border-radius-base = 4px
+
+// 字体
+$font-weight-primary = 500
+
 /* 颜色设置
 -------------------------- */
 $color-primary = #409EFF
+
 // 定义纯黑纯白
 $color-white = #FFFFFF
 $color-black = #000000
+
 // 定义主色的10种亮暗状态,没全用但是可以保留
 $color-primary-light-1 = lighten($color-primary, 10%) /* 53a8ff */
 $color-primary-light-2 = lighten($color-primary, 20%) /* 66b1ff */
@@ -23,11 +29,13 @@ $color-primary-light-6 = lighten($color-primary, 60%) /* b3d8ff */
 $color-primary-light-7 = lighten($color-primary, 70%) /* c6e2ff */
 $color-primary-light-8 = lighten($color-primary, 80%) /* d9ecff */
 $color-primary-light-9 = lighten($color-primary, 90%) /* ecf5ff */
+
 // 定义成功 警告 危险 信息状态的颜色
 $color-success = #67C23A
 $color-warning = #E6A23C
 $color-danger = #F56C6C
 $color-info = #909399
+
 // 定义成功 警告 危险 信息状态的亮度颜色
 $color-success-light = lighten($color-success, 80%)
 $color-warning-light = lighten($color-warning, 80%)
@@ -37,29 +45,35 @@ $color-success-lighter = lighten($color-success, 90%)
 $color-warning-lighter = lighten($color-warning, 90%)
 $color-danger-lighter = lighten($color-danger, 90%)
 $color-info-lighter = lighten($color-info, 90%)
+
 // 字体颜色
 $color-text-primary = #303133
 $color-text-regular = #606266
 $color-text-secondary = #909399
 $color-text-placeholder = #C0C4CC
+
 // 边框颜色
 $border-color-base = #DCDFE6
 $border-color-light = #E4E7ED
 $border-color-lighter = #EBEEF5
 $border-color-extra-light = #F2F6FC
+
 // 背景颜色
 $background-color-base = #F5F7FA
+
 // =========按钮大小
 // 按钮字体大小
 $button-font-size = $font-size-base
 $button-medium-font-size = $font-size-base
 $button-small-font-size = 12px
 $button-mini-font-size = 12px
+
 // 圆角
 $button-border-radius = $border-radius-base
 $button-medium-border-radius = $border-radius-base
 $button-small-border-radius = $border-radius-base - 1
 $button-mini-border-radius = $border-radius-base - 1
+
 // 边距
 $button-padding-vertical = 12px
 $button-padding-horizontal = 20px
@@ -69,6 +83,7 @@ $button-small-padding-vertical = 9px
 $button-small-padding-horizontal = 15px
 $button-mini-padding-vertical = 7px
 $button-mini-padding-horizontal = 15px
+
 // 字体 背景  边框 颜色
 $button-default-font-color = $color-text-regular
 $button-default-background-color = $color-white
@@ -91,11 +106,26 @@ $button-danger-background-color = $color-danger
 $button-info-border-color = $color-info
 $button-info-font-color = $color-white
 $button-info-background-color = $color-info
+
 // 按钮状态百分比
 $button-hover-tint-percent = 20%
 $button-active-shade-percent = 10%
+
 // 链接颜色
 $link-color = $color-primary-light-2
+
 // 下拉列表样式
 $dropdown-menuItem-hover-fill = $color-primary-light-9
 $dropdown-menuItem-hover-color = $link-color
+
+// 链接
+$link-font-size = $font-size-base
+$link-font-weight = $font-weight-primary
+$link-default-font-color = $color-text-regular
+$link-default-active-color = $color-primary
+$link-disabled-font-color = $color-text-placeholder
+$link-primary-font-color = $color-primary
+$link-success-font-color = $color-success
+$link-warning-font-color = $color-warning
+$link-danger-font-color = $color-danger
+$link-info-font-color = $color-info
