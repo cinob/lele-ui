@@ -14,7 +14,7 @@ yarn add lele-ui
 import { createApp } from 'vue'
 import App from './App.vue'
 // 全局引入样式文件
-import 'lele-ui/lib/style.css'
+import 'lele-ui/dist/style.css'
 import LeleUI from 'lele-ui'
 
 createApp(App)
