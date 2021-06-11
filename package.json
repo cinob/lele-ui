@@ -1,5 +1,5 @@
 {
-  "version": "0.0.2",
+  "version": "0.0.4",
   "name": "lele-ui",
   "files": [
     "dist"
@@ -10,8 +10,10 @@
     ".": {
       "import": "./dist/lele-ui.es.js",
       "require": "./dist/lele-ui.umd.js"
-    }
+    },
+    "./dist/style.css": "./dist/style.css"
   },
+  "style": "./dist/style.css",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
