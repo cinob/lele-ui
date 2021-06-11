@@ -1,5 +1,4 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg="Hello Vue 3 + Vite" />
   <LeBackToTop />
   <LeIcon name='loading'/>
@@ -7,12 +6,13 @@
     <LeLink href='https://www.cinob.cn' target='_blank' type="primary" icon="le-icon-edit">编辑</LeLink>
     <LeLink href='https://www.cinob.cn' type="warning" disabled afterIcon="le-icon-loading">编辑</LeLink>
   </p>
+  <LeRadio v-model="radio" label='1'>单选1</LeRadio>
+  <LeRadio v-model="radio" label='2'>单选2</LeRadio>
 </template>
 
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
+import { ref } from 'vue'
+const radio = ref(null)
 </script>
 
 <style>
