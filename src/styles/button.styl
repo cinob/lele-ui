@@ -1,0 +1,202 @@
+// @import '../../../src/styles/global.styl'
+@import './global.styl'
+@import './var.styl'
+@import './icon.styl'
+
+// 字体,背景,边框颜色方法
+basic-color(color, background-color, border-color)
+  color color
+  background background-color
+  border-color border-color
+
+// 设置朴素按钮样式
+button-plain(color)
+  basic-color(color, lighten(color, 90%), lighten(color, 70%))
+
+  &:hover, &:focus
+    basic-color($color-white, color, color)
+
+  &:active
+    basic-color($color-white, darken(color, $button-active-shade-percent), darken(color, $button-active-shade-percent))
+    outline none
+
+  &.is-disabled
+    &, &:hover, &:focus, &:active
+      basic-color(lighten(color, 40%), lighten(color, 90%), $color-white)
+
+// 设置button大小
+button-size(padding-vertical, padding-horizontal, font-size, border-radius)
+  padding padding-vertical padding-horizontal
+  font-size font-size
+  border-radius border-radius
+
+  &.is-round
+    padding padding-vertical padding-horizontal
+
+// 设置button颜色,背景色,边框色  以及 其hover active  focus 等对应样式
+button-variant(color, background-color, border-color)
+  // border-right 2px solid white
+  basic-color(color, background-color, $color-white)
+
+  span
+    @extend .le-icon--right
+
+  &:hover, &:focus
+    basic-color(color, lighten(background-color, $button-hover-tint-percent), lighten(border-color, $button-hover-tint-percent))
+
+  &:active
+    basic-color(color, darken(background-color, $button-active-shade-percent), darken(border-color, $button-active-shade-percent))
+    outline none
+
+  &.is-active
+    basic-color(color, darken(background-color, $button-active-shade-percent), darken(border-color, $button-active-shade-percent))
+
+  &.is-disabled
+    &, &:hover, &:focus, &:active
+      basic-color($color-white, mix(background-color, $color-white), $color-white)
+      cursor not-allowed
+      background-image none
+
+  &.is-plain
+    button-plain(background-color)
+
+// 默认按钮样式
+.le-button--default
+  display inline-block
+  line-height 1
+  white-space nowrap
+  cursor pointer
+  border $border-base
+  text-align center
+  box-sizing border-box
+  margin 0
+  transition 0.1s
+  outline none
+  button-size($button-padding-vertical, $button-padding-horizontal, $button-font-size, $button-border-radius)
+
+  span
+    @extend .le-icon--right
+
+  &:hover, &:focus
+    basic-color($color-primary, $color-primary-light-7, $color-primary-light-9)
+
+  &:active
+    color darken($color-primary, $button-active-shade-percent)
+    border-color darken($color-primary, $button-active-shade-percent)
+
+  &.is-plain
+    button-plain($button-default-font-color)
+
+  &.is-disabled
+    &, &:hover, &:focus, &:active
+      cursor not-allowed
+      background-image none
+      color mix($button-default-font-color, $color-white)
+      border-color $color-primary-light-7
+      background-color $color-white
+
+  &.is-circle
+    border-radius 50%
+    padding $button-padding-vertical
+
+// 文字按钮样式
+.le-button--text
+  button-variant($color-primary, transparent, transparent)
+  padding-left 0
+  padding-right 0
+
+  &:hover &:hover, &:focus
+    basic-color(lighten($color-primary, $button-hover-tint-percent), transparent, transparent)
+
+  &:active
+    basic-color(darken($color-primary, $button-active-shade-percent), transparent, transparent)
+
+  &.is-disabled
+    &, &:hover, &:focus, &:active
+      cursor not-allowed
+      background-image none
+      color lighten($button-default-font-color, 40%)
+      background-color $color-white
+
+// 变量生成类型按钮颜色样式
+for $type in primary warning success danger info
+  .le-button--{$type}
+    button-variant($button- + $type + -font-color, $button- + $type + -background-color, $button- + $type + -border-color)
+
+// 遍历生成按钮字体,垂直水平间距,大小样式
+for $size in medium small mini
+  .le-button--{$size}
+    button-size($button- + $size + -padding-vertical, $button- + $size + -padding-horizontal, $button- + $size + -font-size, $button-border-radius)
+
+    &.is-circle
+      border-radius 50%
+      padding: $button- + $size + -padding-vertical
+
+// 圆角
+.is-round
+  border-radius 20px
+  padding 12px 23px
+
+.is-loading
+  position relative
+  pointer-events none
+
+  &:before
+    pointer-events none
+    content ''
+    position absolute
+    left -1px
+    top -1px
+    right -1px
+    bottom -1px
+    border-radius inherit
+    background-color rgba(255, 255, 255, 0.35)
+
+// 设置按钮组内的按钮间隔样式
+.le-button-group
+  display flex
+  flex-flow row wrap
+  // justify-content space-around
+  align-items center
+
+  & > .le-button--default
+    flex 1
+
+    &:first-child
+      margin 0 -1px 0 0
+
+      &.is-circle
+        border-radius 50%
+
+      for $size in medium small mini default
+        &.le-button--{$size}
+          border-top-right-radius 0
+          border-bottom-right-radius 0
+
+    &:last-child
+      for $size in medium small mini default
+        &.le-button--{$size}
+          border-top-left-radius 0
+          border-bottom-left-radius 0
+      &.is-circle
+        border-radius 50%
+    &:first-child:last-child
+      border-radius $button-border-radius
+
+      &.is-circle
+        border-radius 50%
+
+    &:not(:first-child):not(:last-child)
+      border-radius 0
+      margin 0 -1px 0 0
+
+      &.is-circle
+        border-radius 50%
+
+  &.is-circle
+    for $size in medium small mini
+      &.le-button--{$size}
+        button-size($button- + $size + -padding-vertical, $button- + $size + -padding-horizontal, $button- + $size + -font-size, $button- + $size + -border-radius)
+
+  .is-circle, .le-button--text
+    margin 0 1px
