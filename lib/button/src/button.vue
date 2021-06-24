@@ -17,7 +17,8 @@
       },
     ]"
   >
-    <i :class="['le-icon-loading']" v-if="loading"></i>
+    <i :class="['le-icon-loading', 'le-icon--left']" v-if="loading"></i>
+    <i :class="[icon, 'le-icon--left']"  v-if="icon && !loading"></i>
     <span v-if="$slots.default">
       <slot></slot>
     </span>
