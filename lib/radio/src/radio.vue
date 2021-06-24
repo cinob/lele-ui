@@ -79,6 +79,9 @@ const tabIndex = computed(() => {
   return isDisabled.value ? -1 : 0
 })
 
+const radioSize = computed(() => {
+  return prop.size
+})
 
 const focus = ref(false)
 
@@ -174,11 +177,36 @@ function handleChange () {
     &.is-disabled
       cursor not-allowed
       border-color $border-color-lighter
-    & + .el-radio.is-bordered
+    & + .le-radio.is-bordered
       margin-left 10px
-  .le-radio-medium
-    &.is-bordered
-      padding $radio-bordered-medium-padding
-      border-radius $button-medium-border-radius
-      height $radio-bordered-medium-height
+.le-radio-medium
+  &.is-bordered
+    padding $radio-bordered-medium-padding
+    border-radius $button-medium-border-radius
+    height $radio-bordered-medium-height
+    .le-radio-label
+      font-size $button-medium-font-size
+    .le-radio-inner
+      height $radio-bordered-medium-input-height
+      width $radio-bordered-medium-input-width
+.le-radio-small
+  &.is-bordered
+    padding $radio-bordered-small-padding
+    border-radius $button-small-border-radius
+    height $radio-bordered-small-height
+    .le-radio-label
+      font-size $button-small-font-size
+    .le-radio-inner
+      height $radio-bordered-small-input-height
+      width $radio-bordered-small-input-width
+.le-radio-mini
+  &.is-bordered
+    padding $radio-bordered-mini-padding
+    border-radius $button-mini-border-radius
+    height $radio-bordered-mini-height
+    .le-radio-label
+      font-size $button-mini-font-size
+    .le-radio-inner
+      height $radio-bordered-mini-input-height
+      width $radio-bordered-mini-input-width
 </style>
