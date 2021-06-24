@@ -7,22 +7,60 @@
     <LeButton type='danger' disabled>按钮2</LeButton>
   </LeButtonGroup>
   <LeBackToTop />
-  <LeIcon name='loading'/>
+  <LeIcon name='loading' />
   <p>
-    <LeLink href='https://www.cinob.cn' target='_blank' type="primary" icon="le-icon-edit">编辑</LeLink>
-    <LeLink href='https://www.cinob.cn' type="warning" disabled afterIcon="le-icon-loading">编辑</LeLink>
+    <LeLink href='https://www.cinob.cn'
+            target='_blank'
+            type="primary"
+            icon="le-icon-edit">编辑</LeLink>
+    <LeLink href='https://www.cinob.cn'
+            type="warning"
+            disabled
+            afterIcon="le-icon-loading">编辑</LeLink>
   </p>
+  
   <LeRadio v-model="radio" border @test='test' label='1'>单选1</LeRadio>
   <LeRadio v-model="radio" label='2' disabled>单选2</LeRadio>
-
+  <p>
+    <LeSwitch :value="switchValue"
+              :width='70'
+              active-text="打开的值"
+              inactive-text="关闭的值"
+              active-color="#13ce66"
+              inactive-color="red"
+              @change='change'
+              :inactive-value="0"
+              :active-value="100"
+              name="chenchunhao"
+              >
+    </LeSwitch>
+    <LeSwitch :value="value2"
+              :width='50'
+              active-text="禁用打开"
+              inactive-icon-class="le-icon-edit"
+              active-color="#13ce66"
+              inactive-color="red"
+              disabled
+              >
+    </LeSwitch>
+  </p>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+
 const radio = ref('1')
 function test () {
   console.log('test');
 }
+
+const switchValue = ref(true)
+
+// switch 的值改变事件
+function change (val) {
+  console.log('switch组件当前的值', val);
+}
+
 </script>
 
 <style>

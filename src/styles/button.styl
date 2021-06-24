@@ -1,4 +1,3 @@
-// @import '../../../src/styles/global.styl'
 @import './global.styl'
 @import './var.styl'
 @import './icon.styl'
@@ -38,9 +37,6 @@ button-variant(color, background-color, border-color)
   // border-right 2px solid white
   basic-color(color, background-color, $color-white)
 
-  span
-    @extend .le-icon--right
-
   &:hover, &:focus
     basic-color(color, lighten(background-color, $button-hover-tint-percent), lighten(border-color, $button-hover-tint-percent))
 
@@ -74,9 +70,6 @@ button-variant(color, background-color, border-color)
   outline none
   button-size($button-padding-vertical, $button-padding-horizontal, $button-font-size, $button-border-radius)
 
-  span
-    @extend .le-icon--right
-
   &:hover, &:focus
     basic-color($color-primary, $color-primary-light-7, $color-primary-light-9)
 
@@ -98,7 +91,8 @@ button-variant(color, background-color, border-color)
   &.is-circle
     border-radius 50%
     padding $button-padding-vertical
-
+    i
+      margin 0
 // 文字按钮样式
 .le-button--text
   button-variant($color-primary, transparent, transparent)
@@ -178,8 +172,10 @@ for $size in medium small mini
         &.le-button--{$size}
           border-top-left-radius 0
           border-bottom-left-radius 0
+
       &.is-circle
         border-radius 50%
+
     &:first-child:last-child
       border-radius $button-border-radius
 
