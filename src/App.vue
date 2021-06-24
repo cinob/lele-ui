@@ -19,6 +19,10 @@
                 round>mini</LeButton>
     </LeButtonGroup>
   </div>
+  <!-- <LeButtonGroup style='margin: 0 auto;width: fit-content'>
+    <LeButton round type='primary'>按钮1</LeButton>
+    <LeButton type='danger' disabled>按钮2</LeButton>
+  </LeButtonGroup> -->
   <LeBackToTop />
   <LeIcon name='loading' />
   <p>
@@ -31,14 +35,11 @@
             disabled
             afterIcon="le-icon-loading">编辑</LeLink>
   </p>
+  
+  <LeRadio v-model="radio" border @test='test' label='1'>单选1</LeRadio>
+  <LeRadio v-model="radio" label='2' disabled>单选2</LeRadio>
   <p>
-    <LeRadio v-model="radio"
-           label='1'>单选1</LeRadio>
-    <LeRadio v-model="radio"
-            label='2'>单选2</LeRadio>
-  </p>
-  <p>
-    <LeSwitch :value="value1"
+    <LeSwitch :value="switchValue"
               :width='70'
               active-text="打开的值"
               inactive-text="关闭的值"
@@ -52,7 +53,7 @@
     </LeSwitch>
     <LeSwitch :value="value2"
               :width='50'
-              active-text="禁用打开的值"
+              active-text="禁用打开"
               inactive-icon-class="le-icon-edit"
               active-color="#13ce66"
               inactive-color="red"
@@ -60,13 +61,17 @@
               >
     </LeSwitch>
   </p>
-  
 </template>
 
 <script setup>
 import { ref } from 'vue'
-const radio = ref(null)
-const value1 = ref(true)
+
+const radio = ref('1')
+function test () {
+  console.log('test');
+}
+
+const switchValue = ref(true)
 
 // switch 的值改变事件
 function change (val) {
