@@ -2,27 +2,10 @@
   <HelloWorld msg="Hello Vue 3 + Vite" />
   <Test />
   <BackToTop />
-  <LeButton circle size='small' type='success'>圆形按钮</LeButton>
-  <LeButton type="primary" icon="le-icon-edit">按钮</LeButton>
-  <LeButton type="warning" icon="le-icon-edit" circle ></LeButton>
-  <div style="display: flex;justify-content: center;">
-    <LeButtonGroup>
-      <LeButton round plant>朴素按钮</LeButton>
-      <LeButton round type="info" disabled>禁用按钮</LeButton>
-      <LeButton size='medium'
-                type='primary'>medium</LeButton>
-      <LeButton size='small'
-                type='danger'>small</LeButton>
-      <LeButton size='mini'
-                type='danger'
-                plain
-                round>mini</LeButton>
-    </LeButtonGroup>
-  </div>
-  <!-- <LeButtonGroup style='margin: 0 auto;width: fit-content'>
+  <LeButtonGroup style='margin: 0 auto;width: fit-content'>
     <LeButton round type='primary'>按钮1</LeButton>
     <LeButton type='danger' disabled>按钮2</LeButton>
-  </LeButtonGroup> -->
+  </LeButtonGroup>
   <LeBackToTop />
   <LeIcon name='loading' />
   <p>
