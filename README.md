@@ -32,4 +32,5 @@ createApp(App)
 - [x] `LeIcon`
 - [x] `LeLink`
 - [x] `LeRadio`
+- [x] `LeRadioGroup`
 - [x] `LeSwitch`

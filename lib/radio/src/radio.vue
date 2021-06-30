@@ -40,7 +40,10 @@
 </template>
 
 <script setup>
-import { computed, defineEmit, defineProps, ref } from "vue"
+import { computed, defineEmit, defineProps, ref, getCurrentInstance, watchEffect } from "vue"
+
+const instance = getCurrentInstance()
+const radioGroup = ref()
 
 const prop = defineProps({
   label: {},
@@ -59,12 +62,29 @@ const radio = ref()
 
 const model = computed({
   get () {
-    return prop.modelValue
+    return isGroup.value ? radioGroup.value.modelValue : prop.modelValue
   },
   set (val) {
-    emit('update:modelValue', val)
+    if (isGroup.value) {
+      radioGroup.value.$emit('update:modelValue', val)
+    } else {
+      emit('update:modelValue', val)
+    }
     radio.value && (radio.value.checked = isEqual.value)
   }
+})
+
+const isGroup = computed(() => {
+  let parent = instance.parent
+  while (parent) {
+    if (parent.ctx.componentName !== 'LeRadioGroup') {
+      parent = parent.parent
+    } else {
+      radioGroup.value = parent.ctx
+      return true
+    }
+  }
+  return false
 })
 
 const isEqual = computed(() => {
@@ -72,7 +92,9 @@ const isEqual = computed(() => {
 })
 
 const isDisabled = computed(() => {
-  return prop.disabled
+  return isGroup.value
+    ? radioGroup.value.$props.disabled || prop.disabled
+    : prop.disabled
 })
 
 const tabIndex = computed(() => {

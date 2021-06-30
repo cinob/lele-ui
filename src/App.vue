@@ -1,5 +1,4 @@
 <template>
-  <BackToTop />
   <LeButtonGroup style='margin: 0 auto;width: fit-content'>
     <LeButton round type='primary'>按钮1</LeButton>
     <LeButton type='danger' disabled>按钮2</LeButton>
@@ -20,9 +19,10 @@
       afterIcon="le-icon-loading"
     >编辑</LeLink>
   </p>
-  
-  <LeRadio v-model="radio" size='mini' border label='1'>单选1</LeRadio>
-  <LeRadio v-model="radio" label='2' disabled>单选2</LeRadio>
+  <LeRadioGroup v-model="radio">
+    <LeRadio size='mini' border label='1'>单选1</LeRadio>
+    <LeRadio label='2'>单选2</LeRadio>
+  </LeRadioGroup>
   <p>
     <LeSwitch
       :value="switchValue"
@@ -37,7 +37,7 @@
   </p>
   <p>
     <LeSwitch
-      :value="value2"
+      :value="switchValue"
       active-text="禁用打开"
       inactive-icon-class="le-icon-edit"
       disabled
