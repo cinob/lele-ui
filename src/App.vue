@@ -24,6 +24,12 @@
     <LeRadio label='2'>单选2</LeRadio>
   </LeRadioGroup>
   <p>
+    <LeRadioGroup v-model="buttonRadio">
+      <LeRadioButton size='mini' label="上海" />
+      <LeRadioButton size='mini' label='北京' />
+    </LeRadioGroup>
+  </p>
+  <p>
     <LeSwitch
       :value="switchValue"
       active-text="打开的值"
@@ -49,6 +55,7 @@
 import { ref } from 'vue'
 
 const radio = ref('1')
+const buttonRadio = ref('上海')
 
 const switchValue = ref(true)
 

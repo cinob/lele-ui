@@ -57,6 +57,7 @@ $button-font-size = $font-size-base
 $button-medium-font-size = $font-size-base
 $button-small-font-size = 12px
 $button-mini-font-size = 12px
+$button-font-weight = $font-weight-primary
 // 圆角
 $button-border-radius = $border-radius-base
 $button-medium-border-radius = $border-radius-base
@@ -165,3 +166,7 @@ $switch-on-color = $color-primary
 $switch-off-color = $border-color-base
 $switch-core-border-radius = 10px
 $switch-button-size = 16px
+// 过渡动画
+allTransition() {
+  transition all cubic-bezier(.645, .045, .355, 1) .3s
+}

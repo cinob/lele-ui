@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue"
+import { defineProps, defineEmit } from "vue"
 
 const componentName = 'LeRadioGroup'
 
@@ -19,6 +19,11 @@ const prop = defineProps({
   textColor: String,
   disabled: Boolean
 })
+
+const emit = defineEmit([
+  'change',
+  'update:modelValue'
+])
 
 
 </script>

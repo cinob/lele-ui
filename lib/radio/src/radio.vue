@@ -40,7 +40,7 @@
 </template>
 
 <script setup>
-import { computed, defineEmit, defineProps, ref, getCurrentInstance, watchEffect } from "vue"
+import { computed, defineEmit, defineProps, ref, getCurrentInstance } from "vue"
 
 const instance = getCurrentInstance()
 const radioGroup = ref()
@@ -55,7 +55,8 @@ const prop = defineProps({
 })
 
 const emit = defineEmit([
-  'update:modelValue'
+  'update:modelValue',
+  'change'
 ])
 
 const radio = ref()
